@@ -1,0 +1,7 @@
+.block-footer{
+  /*position: absolute;*/
+  /*bottom: 0px;*/
+  display: block;
+  margin: 0 auto;
+  width: min-content;
+}

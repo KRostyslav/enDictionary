@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="dictionary">
+    <div class="block-input">
+      <form action="">
+        <h3>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
+                          required/>
+          <button (click)="searchAntonyms(word)">Search Antonyms!</button>
+        </h3>
+      </form>
+    </div>
+    <div class="block-description">
+      <h3>Antonyms: </h3>
+      <div *ngFor="let antonym of antonyms">
+        <p *ngIf="antonym">{{antonym}} </p>
+      </div>
+    </div>
+  </div>
+</div>

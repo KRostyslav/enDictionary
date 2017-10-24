@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="dictionary">
+    <div class="block-input">
+      <form action="">
+        <h3>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
+                          required/>
+          <button (click)="searchRhymes(word)">Search Rhymes!</button>
+        </h3>
+      </form>
+    </div>
+    <div class="block-description">
+      <h3>Rhymes: </h3>
+      <div *ngFor="let rhyme of rhymes">
+        <p *ngIf="rhyme"> {{rhyme}} </p>
+      </div>
+    </div>
+  </div>
+</div>
