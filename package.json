@@ -5,8 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "postinstall": "ng build --aot -prod",
-    "heroku-postbuild": "ng build --target=production -e ${NG_ENV:-prod} --aot"
+    "postinstall": "ng build --env=prod"
   },
   "engines": {
     "node": "6.11.1",
