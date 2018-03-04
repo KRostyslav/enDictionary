@@ -1,0 +1,24 @@
+[debug] [2017-10-17T15:58:20.132Z] ----------------------------------------------------------------------
+[debug] [2017-10-17T15:58:20.136Z] Command:       /usr/bin/nodejs /usr/bin/firebase open
+[debug] [2017-10-17T15:58:20.136Z] CLI Version:   3.13.1
+[debug] [2017-10-17T15:58:20.136Z] Platform:      linux
+[debug] [2017-10-17T15:58:20.136Z] Node Version:  v6.11.2
+[debug] [2017-10-17T15:58:20.137Z] Time:          Tue Oct 17 2017 18:58:20 GMT+0300 (EEST)
+[debug] [2017-10-17T15:58:20.137Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-17T15:58:20.151Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2017-10-17T15:58:20.152Z] > authorizing via signed-in user
+[debug] [2017-10-17T15:58:20.155Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-17T15:58:20.155Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/rdvqUkX-IKgDwmJeUGXyagcINhKQ-Eon8z3T7e_ew2E',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Oct 17 2017 18:58:20 GMT+0300 (EEST)
+[debug] [2017-10-17T15:58:20.422Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-17T15:58:20.426Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vocabulary-en  
+ Tue Oct 17 2017 18:58:20 GMT+0300 (EEST)
+[debug] [2017-10-17T15:58:21.210Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-17T15:58:21.212Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vocabulary-en/tokens  
+ Tue Oct 17 2017 18:58:21 GMT+0300 (EEST)
+[debug] [2017-10-17T15:58:21.979Z] <<< HTTP RESPONSE 200
