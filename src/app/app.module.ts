@@ -2,8 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {TranslateModule} from 'ng2-translate/ng2-translate';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 
 import {AppComponent} from './app.component';
@@ -20,16 +19,7 @@ import {SynonymsComponent} from './components/synonyms/synonyms.component';
 import {AntonymsComponent} from './components/antonyms/antonyms.component';
 import {RhymesComponent} from './components/rhymes/rhymes.component';
 import {HttpService} from './services/http.service';
-
-// определение маршрутов
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'dictionary', component: DictionaryComponent},
-  {path: 'synonyms', component: SynonymsComponent},
-  {path: 'antonyms', component: AntonymsComponent},
-  {path: 'rhymes', component: RhymesComponent},
-  {path: '**', component: NotFoundComponent}
-];
+import {appRouter} from './app.router';
 
 @NgModule({
   declarations: [
@@ -42,20 +32,17 @@ const appRoutes: Routes = [
     WordsComponent,
     DictionaryComponent,
     HomeComponent,
-    SynonymsComponent,
-    AntonymsComponent,
-    RhymesComponent,
     NotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     CommonModule,
-    RouterModule.forRoot(appRoutes),
-    TranslateModule.forRoot(),
-    HttpModule
+    HttpClientModule,
+    appRouter
   ],
-  providers: [ HttpService ],
+  providers: [
+    HttpService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

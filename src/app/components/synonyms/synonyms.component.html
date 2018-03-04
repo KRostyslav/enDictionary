@@ -2,16 +2,18 @@
   <div class="dictionary">
     <div class="block-input">
       <form action="">
-        <h3>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
+        <h4>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
                           required/>
-          <button (click)="searchSynonyms(word)">Search Synonyms!</button>
-        </h3>
+          <button type="button" class="btn btn-primary"  (click)="searchSynonyms(word)">Search Synonyms!</button>
+        </h4>
       </form>
     </div>
     <div class="block-description">
-      <h3>Synonyms: </h3>
-      <div *ngFor="let synonym of synonyms">
-        <p *ngIf="synonym"> {{synonym}} </p>
+      <h3 *ngIf="synonyms">Synonyms: </h3>
+      <div class="block-type">
+        <div *ngFor="let synonym of synonyms">
+          <span *ngIf="synonym" class="blue-type"> {{synonym}} </span>
+        </div>
       </div>
     </div>
   </div>

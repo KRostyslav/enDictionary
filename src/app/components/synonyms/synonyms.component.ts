@@ -9,7 +9,7 @@ import {HttpService} from '../../services/http.service';
 @Component({
   selector: 'app-synonyms',
   templateUrl: './synonyms.component.html',
-  styleUrls: [ './synonyms.component.css' ]
+  styleUrls: [ './synonyms.component.scss' ]
 })
 
 export class SynonymsComponent implements OnInit {
@@ -23,8 +23,8 @@ export class SynonymsComponent implements OnInit {
 
   searchSynonyms( word ) {
     this.http.getSynonyms(word)
-      .then(( response ) => {
-        this.synonyms = response;
+      .subscribe(( response ) => {
+        this.synonyms = response['synonyms'];
       });
   }
 

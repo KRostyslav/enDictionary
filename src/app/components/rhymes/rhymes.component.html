@@ -2,16 +2,18 @@
   <div class="dictionary">
     <div class="block-input">
       <form action="">
-        <h3>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
+        <h4>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
                           required/>
-          <button (click)="searchRhymes(word)">Search Rhymes!</button>
-        </h3>
+          <button type="button" class="btn btn-primary" (click)="searchRhymes(word)">Search Rhymes!</button>
+        </h4>
       </form>
     </div>
     <div class="block-description">
-      <h3>Rhymes: </h3>
-      <div *ngFor="let rhyme of rhymes">
-        <p *ngIf="rhyme"> {{rhyme}} </p>
+      <h3 *ngIf="rhymes">Rhymes: </h3>
+      <div class="block-type">
+        <div *ngFor="let rhyme of rhymes">
+          <span *ngIf="rhyme" class="blue-type"> {{rhyme}} </span>
+        </div>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ import {HttpService} from '../../services/http.service';
 @Component({
   selector: 'app-rhymes',
   templateUrl: './rhymes.component.html',
-  styleUrls: [ './rhymes.component.css' ]
+  styleUrls: [ './rhymes.component.scss' ]
 })
 export class RhymesComponent implements OnInit {
 
@@ -23,8 +23,8 @@ export class RhymesComponent implements OnInit {
   searchRhymes( word ) {
 
     this.http.getRhymes(word)
-      .then(( response: Response ) => {
-        this.rhymes = response;
+      .subscribe(( response ) => {
+        this.rhymes = response['rhymes']['all'];
       });
   }
 

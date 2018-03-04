@@ -2,17 +2,20 @@
   <div class="dictionary">
     <div class="block-input">
       <form action="">
-        <h3>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
+        <h4>Words: <input id="dictionaryForm" type="text" name="word" [(ngModel)]="word"
                           required/>
-          <button (click)="searchAntonyms(word)">Search Antonyms!</button>
-        </h3>
+          <button type="button" class="btn btn-primary" (click)="searchAntonyms(word)">Search Antonyms!</button>
+        </h4>
       </form>
     </div>
     <div class="block-description">
-      <h3>Antonyms: </h3>
-      <div *ngFor="let antonym of antonyms">
-        <p *ngIf="antonym">{{antonym}} </p>
+      <h3 *ngIf="antonyms">Antonyms: </h3>
+      <div class="block-type">
+        <div *ngFor="let antonym of antonyms">
+          <span *ngIf="antonym" class="blue-type">{{antonym}} </span>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
