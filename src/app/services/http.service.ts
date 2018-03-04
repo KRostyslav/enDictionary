@@ -1,14 +1,19 @@
-import {Component, OnInit, Input} from '@angular/core';
 import {Injectable} from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {catchError} from 'rxjs/operators';
 
-const URL = process.env.ApiUrl;
-const KEY = process.env.MashapeKey;
+const URL = 'https://wordsapiv1.p.mashape.com/words/';
+const KEY = '';
 
-let options = {};
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'X-Mashape-Key': KEY
+  })
+};
 
 @Injectable()
 export class HttpService {
@@ -17,63 +22,23 @@ export class HttpService {
   body: any;
   words: any;
 
-  constructor( private http: Http ) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('X-Mashape-Key', KEY);
-    options = new RequestOptions({headers: headers});
+  constructor( private _http: HttpClient ) {
   }
 
-  getWordDescription( word ): Promise<any> {
-    return this.http.get(URL + word, options)
-      .toPromise()
-      .then(( response: Response ) => {
-        this.data = response;
-        this.body = JSON.parse(this.data._body);
-        return this.body;
-      })
-      .catch(this.handleError);
+  getWordDescription( word ) {
+    return this._http.get(URL + word, httpOptions)
   }
 
-  getSynonyms( word ): Promise<any> {
-    return this.http.get(URL + word + '/synonyms', options)
-      .toPromise()
-      .then(( response: Response ) => {
-        this.data = response;
-        this.body = JSON.parse(this.data._body);
-        this.words = this.body.synonyms;
-        return this.words;
-      })
-      .catch(this.handleError);
+  getSynonyms( word ) {
+    return this._http.get(URL + word + '/synonyms', httpOptions)
   }
 
-  getAntonyms( word ): Promise<any> {
-    return this.http.get(URL + word + '/antonyms', options)
-      .toPromise()
-      .then(( response: Response ) => {
-        this.data = response;
-        this.body = JSON.parse(this.data._body);
-        this.words = this.body.antonyms;
-        return this.words;
-      })
-      .catch(this.handleError);
+  getAntonyms( word ) {
+    return this._http.get(URL + word + '/antonyms', httpOptions)
   }
 
-  getRhymes( word ): Promise<any> {
-    return this.http.get(URL + word + '/rhymes', options)
-      .toPromise()
-      .then(( response: Response ) => {
-        this.data = response;
-        this.body = JSON.parse(this.data._body);
-        this.words = this.body.rhymes.all;
-        return this.words;
-      })
-      .catch(this.handleError);
-  }
-
-  private handleError( error: any ) {
-    console.error('An error occurred', error); // for demo purposes only
-    // return Promise.reject(error.message || error);
+  getRhymes( word ) {
+    return this._http.get(URL + word + '/rhymes', httpOptions)
   }
 
 }

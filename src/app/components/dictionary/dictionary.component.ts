@@ -9,7 +9,7 @@ import {HttpService} from '../../services/http.service';
 @Component({
   selector: 'app-dictionary',
   templateUrl: './dictionary.component.html',
-  styleUrls: [ './dictionary.component.css' ]
+  styleUrls: [ './dictionary.component.scss' ]
 })
 
 export class DictionaryComponent implements OnInit {
@@ -26,7 +26,7 @@ export class DictionaryComponent implements OnInit {
 
   search( wordDictionary ) {
     this.http.getWordDescription(wordDictionary)
-      .then(( response ) => {
+      .subscribe(( response ) => {
         this.body = response;
         this.results = this.body.results;
         console.log('body', this.body);

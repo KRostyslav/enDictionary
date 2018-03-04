@@ -2,26 +2,48 @@
   <div class="dictionary">
     <div class="block-input">
       <form action="">
-        <h3>Words: <input id="dictionaryForm" type="text" name="wordDictionary" [(ngModel)]="wordDictionary"
+        <h4>Words: <input id="dictionaryForm" type="text" name="wordDictionary" [(ngModel)]="wordDictionary"
                           required/>
-          <button (click)="search(wordDictionary)">Search word!</button>
-        </h3>
+          <button type="button" class="btn btn-primary" (click)="search(wordDictionary)">Search word!</button>
+        </h4>
       </form>
     </div>
     <div class="block-description">
-      <h2>Description</h2>
+      <h3 *ngIf="pronunciation">Description</h3>
       <h4 *ngIf="pronunciation"><b>Pronunciation</b>: [ {{pronunciation.all}} ]</h4>
+      <h4 *ngIf="results"><b>Results</b></h4>
       <hr>
-      <h4><b>Results:</b></h4>
       <div *ngFor="let item of results">
-        <p *ngIf="item.definition"><b>Definition:</b> {{item.definition}} </p>
+        <p *ngIf="item.definition"><b>Definition:</b> {{item.definition }} </p>
         <p *ngIf="item.partOfSpeec"><b>Part Of Speec:</b> {{item.partOfSpeec}} </p>
         <p *ngIf="item.usageOf"><b>Usage Of:</b> {{item.usageOf}} </p>
-        <p *ngIf="item.typeOf"><b>Type Of:</b> {{item.typeOf}} </p>
-        <p *ngIf="item.hasTypes"><b>Has Types:</b> {{item.hasTypes}} </p>
-        <p *ngIf="item.hasInstances"><b>Has Instances:</b> {{item.hasInstances}} </p>
-        <p *ngIf="item.hasSubstances"><b>Has Substances:</b> {{item.hasSubstances}} </p>
-        <p *ngIf="item.examples"><b>Examples:</b> {{item.examples}} </p>
+
+        <div class="block-type">
+          <b>Type Of: </b>
+          <span class="blue-type" *ngFor="let type of item.typeOf"> {{type}}</span>
+          <!--<p *ngIf="item.typeOf"><b>Type Of:</b> {{item.typeOf}} </p>-->
+        </div>
+
+        <div *ngIf="item.hasTypes" class="block-type">
+          <b>Has Types: </b>
+          <span class="blue-type" *ngFor="let type of item.hasTypes"> {{type}} </span>
+        </div>
+
+        <div *ngIf="item.hasInstances" class="block-type">
+          <b>Has Instances: </b>
+          <span class="blue-type" *ngFor="let type of item.hasInstances"> {{type}} </span>
+        </div>
+
+        <div *ngIf="item.hasSubstances" class="block-type">
+          <b>Has Substances: </b>
+          <span class="blue-type" *ngFor="let type of item.hasSubstances"> {{type}} </span>
+        </div>
+
+        <div *ngIf="item.examples" class="block-type">
+          <b>Examples: </b>
+          <div *ngFor="let type of item.examples"><p><i>{{type}}.</i></p></div>
+        </div>
+
         <hr>
       </div>
       <h4 *ngIf="frequency"><b>Frequency: </b> {{frequency}}</h4>

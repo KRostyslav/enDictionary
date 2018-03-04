@@ -1,0 +1,31 @@
+.dictionary{
+  position: relative;
+  top: 50px;
+  display: block;
+  margin: 30px;
+}
+
+p{
+  text-transform: capitalize;
+}
+
+.block-type{
+  display: flex;
+  flex-wrap: wrap;
+  b{
+    margin: 5px 0;
+    padding: 5px 0;
+  }
+  p{
+    margin: 5px;
+    padding: 5px
+  }
+  .blue-type{
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #0e86ef;
+    color: white;
+  }
+}
