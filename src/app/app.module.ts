@@ -30,7 +30,6 @@ import {appRouter} from './app.router';
     TestimonialComponent,
     JumbotronComponent,
     WordsComponent,
-    DictionaryComponent,
     HomeComponent,
     NotFoundComponent
   ],

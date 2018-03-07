@@ -6,10 +6,14 @@ import {HomeComponent} from './components/home/home.component';
 import {RhymesComponent} from './components/rhymes/rhymes.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {ModuleWithProviders} from '@angular/core';
+import {DictionaryModule} from './components/dictionary/dictionary.module';
 
 const ROUTER: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'dictionary', component: DictionaryComponent},
+  {
+    path: 'dictionary',
+    loadChildren: './components/dictionary/dictionary.module#DictionaryModule'
+  },
   {
     path: 'synonyms',
     loadChildren: './components/synonyms/synonyms.module#SynonymsModule'

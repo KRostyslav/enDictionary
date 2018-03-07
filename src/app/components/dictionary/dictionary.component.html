@@ -2,16 +2,14 @@
   <div class="dictionary">
     <div class="block-input">
       <form action="">
-        <h4>Words: <input id="dictionaryForm" type="text" name="wordDictionary" [(ngModel)]="wordDictionary"
-                          required/>
-          <button type="button" class="btn btn-primary" (click)="search(wordDictionary)">Search word!</button>
+        <h4>Word: <input id="dictionaryForm" type="text" name="wordDictionary" [(ngModel)]="wordDictionary"
+                          (keyup)="search(wordDictionary)" required/>
         </h4>
       </form>
     </div>
+
     <div class="block-description">
-      <h3 *ngIf="pronunciation">Description</h3>
       <h4 *ngIf="pronunciation"><b>Pronunciation</b>: [ {{pronunciation.all}} ]</h4>
-      <h4 *ngIf="results"><b>Results</b></h4>
       <hr>
       <div *ngFor="let item of results">
         <p *ngIf="item.definition"><b>Definition:</b> {{item.definition }} </p>
@@ -21,7 +19,6 @@
         <div class="block-type">
           <b>Type Of: </b>
           <span class="blue-type" *ngFor="let type of item.typeOf"> {{type}}</span>
-          <!--<p *ngIf="item.typeOf"><b>Type Of:</b> {{item.typeOf}} </p>-->
         </div>
 
         <div *ngIf="item.hasTypes" class="block-type">
